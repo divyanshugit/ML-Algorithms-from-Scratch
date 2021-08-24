@@ -21,7 +21,7 @@ def get_neighbors(train_df, row_in_test, num_neighbors):
   """
   distances = list()
   
-  for row_in_train in train:
+  for row_in_train in train_df:
     dist = euclidean_distance(row_in_test, row_in_train)
     distances.append((train_row, dist))
   
@@ -47,7 +47,7 @@ def predict_classification(train_df, row_in_test, num_neighbors):
 def k_nearest_neighbors(train_df, test_df, num_neighbors):
   
   predictions = list()
-  for row in test:
+  for row in test_df:
     output = predict_classification(train_df, row, num_neighbors)
     predictions.append(output)
     
